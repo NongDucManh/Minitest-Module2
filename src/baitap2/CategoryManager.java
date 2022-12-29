@@ -72,6 +72,7 @@ public class CategoryManager implements Serializable {
         int indexDelete = searchIdCategory(scanner);
         if (indexDelete != -1) {
             listCategory.remove(indexDelete);
+            System.out.println("List after delete success!");
             displayCategory();
         }
     }

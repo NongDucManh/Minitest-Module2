@@ -94,7 +94,7 @@ public class ProductManager implements Serializable {
         int indexToDelete = searchIdOfProduct(scanner);
         if (indexToDelete != -1) {
             productManager.remove(indexToDelete);
-            System.out.println("List after delete success");
+            System.out.println("List after delete success!");
             displayProductManager();
         }
     }
