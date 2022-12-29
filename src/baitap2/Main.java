@@ -32,8 +32,10 @@ public class Main {
             System.out.println("17. Display Drinks by bottleType");
             System.out.println("18. Display Drinks by bottleType and price");
             System.out.println("19. Enter to menu of category");
-            System.out.println("20. Write To File");
-            System.out.println("21. Read Data from File");
+            System.out.println("20. Write To File (Binary)");
+            System.out.println("21. Read Data from File (Binary)");
+            System.out.println("22. Write CSV File (CSV)");
+            System.out.println("23. Read Data from File (CSV)");
             System.out.println("0. Exit");
             int choice = -1;
             System.out.println("Enter your choice");
@@ -102,14 +104,18 @@ public class Main {
                     menuOfCategory(categoryManager, productManager, scanner);
                     break;
                 case 20:
-                    productManager.writeToFile("C:\\Users\\Admin\\IdeaProjects\\Minitest-Module2\\src\\baitap2\\file");
+                    productManager.writeToFile("C:\\Users\\Admin\\IdeaProjects\\Minitest-Module2\\src\\baitap2\\file.txt");
                     break;
                 case 21:
-                   ArrayList<ProductManager> read = productManager.readToFile("C:\\Users\\Admin\\IdeaProjects\\Minitest-Module2\\src\\baitap2\\file");
+                   ArrayList<ProductManager> read = productManager.readToFile("C:\\Users\\Admin\\IdeaProjects\\Minitest-Module2\\src\\baitap2\\file.txt");
                     for (int i = 0; i < read.size(); i++) {
                         System.out.println(read.get(i));
                     }
                     break;
+                case 22:
+
+                case 23:
+
                 case 0:
                     System.exit(0);
                 default:

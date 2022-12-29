@@ -1,6 +1,7 @@
 package baitap2;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ProductManager implements Serializable {
@@ -381,4 +382,93 @@ public class ProductManager implements Serializable {
         }
         return read;
     }
+
+    public void writeCsvFile(String fileName) {
+        FileWriter fileWriter = null;
+
+        try {
+            fileWriter = new FileWriter(fileName);
+
+            fileWriter.append("id, name, price, quantity, category");
+
+            fileWriter.append("\n");
+
+            for (Product product : productManager) {
+                fileWriter.append(String.valueOf(product.getId());
+                fileWriter.append(",");
+                fileWriter.append(product.getName());
+                fileWriter.append(",");
+                fileWriter.append();
+                fileWriter.append(",");
+                fileWriter.append();
+                fileWriter.append(",");
+                fileWriter.append();
+
+
+            }
+
+            System.out.println("CSV file was created successfully !!!");
+
+        } catch (Exception e) {
+            System.out.println("Error in CsvFileWriter !!!");
+            e.printStackTrace();
+        } finally {
+            try {
+                fileWriter.flush();
+                fileWriter.close();
+            } catch (IOException e) {
+                System.out.println("Error while flushing/closing fileWriter !!!");
+                e.printStackTrace();
+            }
+        }
+    }
+    public class CsvReader {
+
+        private static final String COMMA_DELIMITER = ",";
+
+        public static void main(String[] args) {
+
+            BufferedReader br = null;
+            try {
+                String line;
+                br = new BufferedReader(new FileReader("data/contries.csv"));
+
+
+                while ((line = br.readLine()) != null) {
+                    printContry(parseCsvLine(line));
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (br != null)
+                        br.close();
+                } catch (IOException crunchifyException) {
+                    crunchifyException.printStackTrace();
+                }
+            }
+        }
+
+        public static List<String> parseCsvLine(String csvLine) {
+            List<String> result = new ArrayList<String>();
+            if (csvLine != null) {
+                String[] splitData = csvLine.split(COMMA_DELIMITER);
+                for (int i = 0; i < splitData.length; i++) {
+                    result.add(splitData[i]);
+                }
+            }
+            return result;
+        }
+
+        private static void printContry(List<String> country) {
+            System.out.println(
+                    "Country [id= "
+                            + country.get(0)
+                            + ", code= " + country.get(1)
+                            + " , name=" + country.get(2)
+                            + "]");
+        }
+    }
+
 }
